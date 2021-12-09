@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Эммет - пишем код быстро</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 10);
+        }
+
+        .caret {
+            position: relative;
+            padding: 1px 4px;
+            border: 1px solid #b1b1b1;
+        }
+
+        .caret--anim:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            bottom: 2px;
+            left: 3px;
+            border-left: 2px solid;
+            animation: blink 1s linear infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 1; }
+            51% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Emmet</h1>
+        <p>Tools for web-developers</p>
+    </header>
+
+    <section class="slide clear">
+        <h2 class="shout grow" style="text-align: left; padding-left: var(--slide-side);">Emmet</h2>
+        <img class="place right" src="https://emmet.io/i/logo-large.png" alt="Square picture placeholder.">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout grow">Что такое<br> Emmet?</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Эммет</h2>
+        <p style="padding-right: 155px;">
+            <b>Эммет Блоковски</b> - персонаж мини-фигурок Lego во франшизе
+            <em>Лего. Фильм</em> и главный герой одноименного фильма <em>Лего. Фильм</em>
+            обычный строитель, которого по ошибке принимают за Избранного, который должен спасти вселенную Лего от злого Лорда Бизнеса.
+        </p>
+
+        <img class="place bottom right" height="70%" src="img/Character1_Emmet.png" alt="">
+    </section>
+
+    <section class="slide black">
+        <h2 style="color: #fff; text-shadow: 1px 1px 0 black;">Эммет</h2>
+        <p style="padding-right: 155px; color: #fff; text-shadow: 1px 1px 0 black;">
+            <b>Эммет Блоковски (Emmet Brickowski) - персонаж мини-фигурок Lego во франшизе
+            <em>Лего. Фильм</em>, и главный герой одноименного фильма <em>Лего. Фильм</em>
+            - обычный строитель, которого по ошибке принимают за Избранного, который должен спасти вселенную Лего от злого Лорда Бизнеса.</b>
+        </p>
+
+        <img class="cover" style="opacity: 0.6;" src="img/494506.png" alt="">
+    </section>
+
+    <section class="slide">
+        <pre>
+            <code>&lt;!DOCTYPE html&gt;</code>
+            <code>&lt;html lang=&quot;<span class="caret">en</span>&quot;&gt;</code>
+            <code>    &lt;head&gt;</code>
+            <code>        &lt;meta charset=&quot;UTF-8&quot;&gt;</code>
+            <code>        &lt;meta name=&quot;viewport&quot; content=&quot;width=<span class="caret">device-width</span>, user-scalable=<span class="caret">no</span>, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</code>
+            <code>        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=<span class="caret">edge</span>&quot;&gt;</code>
+            <code>        &lt;title&gt;<span class="caret">Document</span>&lt;/title&gt;</code>
+            <code>    &lt;/head&gt;</code>
+            <code>    &lt;body&gt;</code>
+            <code>    &lt;/body&gt;</code>
+            <code>&lt;/html&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout grow">Синтаксис сокращений</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Элементы</h2>
+        <p>
+            Можно использовать имена элементов, такие как <code>div</code> для создания HTML-тегов.
+            <br>
+
+           <code class="next">&lt;div&gt;&lt;/div&gt;</code>
+        </p>
+
+        <p class="next">
+            У Emmet нет предопределенного набора имен тегов, можно написать любое слово и преобразовать его в тег, например <code>test</code>:
+            <br>
+
+            <code class="next">&lt;test&gt;&lt;/test&gt;</code>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Операторы вложенности</h2>
+            Операторы вложенности используются для определения положения элементов внутри генерируемого дерева:
+            должны ли они располагаться внутри или рядом с элементом контекста.
+
+        <ul>
+            <li class="next">Дочерний: <code><b>></b></code></li>
+            <li class="next">Соседние: <code><b>+</b></code></li>
+            <li class="next">Группировка: <code><b>()</b></code></li>
+            <li class="next">Поместить выше: <code><b>^</b></code></li>
+            <li class="next">Умножение: <code><b>*</b></code></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Дочерний:</h2>
+        <p>Используется оператор <code>></code> для вложения элементов друг в друга:</p>
+        <p class="next"><code>div<mark>></mark>ul<mark>></mark>li</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div&gt;</code>
+                <code>    &lt;ul&gt;</code>
+                <code>        &lt;li&gt;&lt;/li&gt;</code>
+                <code>    &lt;/ul&gt;</code>
+                <code>&lt;/div&gt;</code>
+            </pre>
+
+            <img class="place bottom right" width="400" style="" src="img/кот-вжух.png" alt="">
+        </div>
+
+    </section>
+
+    <section class="slide">
+        <h2>Соседние:</h2>
+
+        <p>Для размещения элементов рядом друг с другом, на одном уровне, используется оператор<code>+</code>:</p>
+
+        <p class="next"><code>header<mark>+</mark>main<mark>+</mark>aside<mark>+</mark>footer</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;header&gt;&lt;/header&gt;</code>
+                <code>&lt;main&gt;&lt;/main&gt;</code>
+                <code>&lt;aside&gt;&lt;/aside&gt;</code>
+                <code>&lt;footer&gt;&lt;/footer&gt;</code>
+            </pre>
+
+            <img class="place bottom right" width="400" style="" src="img/кот-вжух.png" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Комбинирование:</h2>
+
+        <p class="next"><code>div<mark>></mark>header<mark>+</mark>main<mark>+</mark>aside<mark>+</mark>footer</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div&gt;</code>
+                <code>    &lt;header&gt;&lt;/header&gt;</code>
+                <code>    &lt;main&gt;&lt;/main&gt;</code>
+                <code>    &lt;aside&gt;&lt;/aside&gt;</code>
+                <code>    &lt;footer&gt;&lt;/footer&gt;</code>
+                <code>&lt;/div&gt;</code>
+            </pre>
+
+            <img class="place bottom right" width="400" style="" src="img/кот-вжух.png" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Группировка:</h2>
+        <p>Для группировки элементов используются круглые скобки</p>
+        <p class="next"><code>header+<mark>(</mark>div>main+aside<mark>)</mark>+footer</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;header&gt;&lt;/header&gt;</code>
+                <code>&lt;div&gt;</code>
+                <code>    &lt;main&gt;&lt;/main&gt;</code>
+                <code>    &lt;aside&gt;&lt;/aside&gt;</code>
+                <code>&lt;/div&gt;</code>
+                <code>&lt;footer&gt;&lt;/footer&gt;</code>
+            </pre>
+
+            <img class="place bottom right" width="400" style="" src="img/кот-вжух.png" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Поместить выше:</h2>
+        <p>Позволяет подняться на один уровень вверх по дереву.</p>
+        <p class="next"><code>header+div>main+aside<mark>^</mark>footer</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;header&gt;&lt;/header&gt;</code>
+                <code>&lt;div&gt;</code>
+                <code>    &lt;main&gt;&lt;/main&gt;</code>
+                <code>    &lt;aside&gt;&lt;/aside&gt;</code>
+                <code>&lt;/div&gt;</code>
+                <code>&lt;footer&gt;&lt;/footer&gt;</code>
+            </pre>
+
+            <img class="place bottom right" width="400" style="" src="img/кот-вжух.png" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Поместить выше:</h2>
+        <p><code>div>ul>li<mark>^</mark>p</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div&gt;</code>
+                <code>    &lt;ul&gt;</code>
+                <code>        &lt;li&gt;&lt;/li&gt;</code>
+                <code>    &lt;/ul&gt;</code>
+                <code>    &lt;p&gt;&lt;/p&gt;</code>
+                <code>&lt;/div&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Поместить выше:</h2>
+
+        <p><code>div>ul>li<mark>^^</mark>p</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div&gt;</code>
+                <code>    &lt;ul&gt;</code>
+                <code>        &lt;li&gt;&lt;/li&gt;</code>
+                <code>    &lt;/ul&gt;</code>
+                <code>&lt;/div&gt;</code>
+                <code>&lt;p&gt;&lt;/p&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Умножение:</h2>
+        <p>С помощью оператора <code>*</code> можно задать, сколько раз должен выводиться элемент:</p>
+        <p class="next"><code>ul>li<mark>*3</mark></code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;ul&gt;</code>
+                <code>    &lt;li&gt;&lt;/li&gt;</code>
+                <code>    &lt;li&gt;&lt;/li&gt;</code>
+                <code>    &lt;li&gt;&lt;/li&gt;</code>
+                <code>&lt;/ul&gt;</code>
+            </pre>
+
+            <img class="place bottom right" width="400" style="" src="img/кот-вжух.png" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Операторы атрибутов</h2>
+        <p>Операторы атрибутов используются для добавления атрибутов.
+            Например быстро добавить атрибут <code>class</code> к сгенерированному элементу.</p>
+
+        <ul>
+            <li class="next">ID и КЛАСС</li>
+            <li class="next">Настраиваемые атрибуты: <code>[attr]</code></li>
+            <li class="next">Нумерация позиций: <code>$</code></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>ID и КЛАСС</h2>
+
+        <p>
+            Синтаксис Emmet для описания элементов похож на CSS-селекторы <br>
+
+            В CSS используется обозначения <code>elem#id</code> и <code>elem.class</code>,
+            чтобы добраться до элементов с указанными атрибутами <code>id</code> или <code>class</code>.
+            В Emmet вы можете использовать тот же синтаксис для добавления этих атрибутов к указанному элементу</p>
+
+        <p class="next"><code>div<mark>.wrapper</mark></code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div class=&quot;wrapper&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>ID и КЛАСС</h2>
+
+        <p>Можно комбинировать</p>
+
+        <p class="next"><code>div#id-wrap.wrapper</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div id=&quot;id-wrap&quot; class=&quot;wrapper&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>ID и КЛАСС</h2>
+
+        <p>Не обязательно указывать тэг</p>
+
+        <p class="next"><code>#id-wrap.wrapper</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div id=&quot;id-wrap&quot; class=&quot;wrapper&quot;&gt;&lt;/div&gt;</code>
+            </pre>
+        </div>
+
+        <p class="next"><code>span>#id-wrap.wrapper</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;span&gt;</code>
+                <code>    &lt;span id=&quot;id-wrap&quot; class=&quot;wrapper&quot;&gt;&lt;/span&gt;</code>
+                <code>&lt;/span&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Настраиваемые атрибуты</h2>
+        <p>Можно использовать <code>[attr]</code> нотацию (как в CSS) для добавления настраиваемых атрибутов к элементу:</p>
+
+        <p class="next"><code>button<mark>[type="button" disabled]</mark></code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;button type=&quot;button&quot; disabled&gt;&lt;/button&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Нумерация позиций</h2>
+        <p>С помощью оператора умнжения <code>*</code> можно повторить элементы,<br>
+            оператор <code>$</code> поможет пронумеровать их</p>
+
+        <p class="next"><code>ul>li.item<mark>$*3</mark></code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;ul&gt;</code>
+                <code>    &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;</code>
+                <code>    &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;</code>
+                <code>    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</code>
+                <code>&lt;/ul&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Нумерация позиций</h2>
+        <p>С помощью модификатора <code>@</code> можно изменить направление нумерации или изметить началное значение нумерации.</p>
+
+        <p class="next"><code>ul>li.item<mark>$@-*3</mark></code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;ul&gt;</code>
+                <code>    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;</code>
+                <code>    &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;</code>
+                <code>    &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;</code>
+                <code>&lt;/ul&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Текст</h2>
+        <p>Для добавления текста к элементу можно использовать <br>
+            фигурные скобки <code>{}</code></p>
+
+        <p class="next"><code>p<mark>{</mark>Здесь какой-то текст<mark>}</mark></code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;p&gt;Здесь какой-то текст&lt;/p&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Lorem Ipsum</h2>
+        <p><a href="https://ru.wikipedia.org/wiki/Lorem_ipsum" target="_blank">Текст для наполнения (рыба)</a> <code>lorem</code></p>
+
+        <p class="next">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque ducimus expedita quia quo ratione sapiente sed.
+            Ad aut consequatur dolorum ea eius esse ex laborum molestiae quaerat, reiciendis repudiandae vitae.</p>
+
+        <p class="next"><code>lorem10</code></p>
+        <p class="next">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, modi?</p>
+    </section>
+
+    <section class="slide">
+        <h2>Сокращения</h2>
+        <blockquote>
+            <p>
+                У Emmet нет предопределенного набора имен тегов, можно написать любое слово и преобразовать его в тег, например <code>test</code>:
+                <br>
+                <code>&lt;test&gt;&lt;/test&gt;</code>
+            </p>
+        </blockquote>
+
+        <p class="next"><code>img</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Псевдонимы</h2>
+        <p>Псевдонимы названий тегов</p>
+
+        <p class="next"><code>bq</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;blockquote&gt;&lt;/blockquote&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Пишем свои пседонимы и сокращения</h2>
+
+        <p class="next"><code>sc</code> > <code>section</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;sc&gt;&lt;/sc&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Пишем свои пседонимы и сокращения</h2>
+
+        <p>Настройки для VS Code</p>
+
+        <p class="next">
+            Создаеи файл <code>snippets.json</code> <br>
+            <code>File > Preferences > Settings (Ctr+,)</code> <br>
+            и шем в поиске <code>Emmet Extensions Path</code>
+        </p>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover" src="img/2021-12-09_16-15-36.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Пишем свои пседонимы и сокращения</h2>
+
+        <pre>
+            <code>{</code>
+            <code>    &quot;html&quot;: {</code>
+            <code>        &quot;snippets&quot;: {</code>
+            <code>            &quot;sc&quot;: &quot;section&quot;</code>
+            <code>        }</code>
+            <code>    }</code>
+            <code>}</code>
+            <code></code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Пишем свои пседонимы и сокращения</h2>
+
+        <p>Настрока в Webstorm</p>
+
+        <p class="next">
+            <code>
+                File > Settings (Ctr+Alt+S) > Editor > Live Templates
+            </code>
+        </p>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover" src="img/2021-12-09_15-27-45.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Пишем свои пседонимы и сокращения</h2>
+
+        <p><code>sc</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;section&gt;&lt;/section&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout grow">BEM</h2>
+    </section>
+
+    <section class="slide">
+        <h2>BEM</h2>
+
+        <p><code>.block>.block__el.block__el--mod</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div class=&quot;block&quot;&gt;</code>
+                <code>    &lt;div class=&quot;block__el block__el--mod&quot;&gt;&lt;/div&gt;</code>
+                <code>&lt;/div&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>BEM</h2>
+
+        <p><code>.block>.__el--mod</code></p>
+        <p><code>.block>.-el_mod</code></p>
+
+        <div class="next">
+            <pre>
+                <code>&lt;div class=&quot;block&quot;&gt;</code>
+                <code>    &lt;div class=&quot;block__el block__el--mod&quot;&gt;&lt;/div&gt;</code>
+                <code>&lt;/div&gt;</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>BEM настройка</h2>
+
+        <p>Настройка для VS Code</p>
+
+        <p class="next">
+            <code>File > Preferences > Settings (Ctr+,)</code> <br>
+            и ищем в поиске <code>syntaxProfiles</code>
+        </p>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover" src="img/2021-12-09_17-10-54.png" alt="">
+    </section>
+
+    <section class="slide" style="padding-top: 12px;">
+        <pre>
+            <code>{</code>
+            <code>    &quot;emmet.syntaxProfiles&quot;: {</code>
+            <code>        &quot;html&quot;: {</code>
+            <code>          &quot;filters&quot;: &quot;bem&quot;</code>
+            <code>        }</code>
+            <code>    },</code>
+            <code>    &quot;emmet.preferences&quot;: {</code>
+            <code>        &quot;bem.elementSeparator&quot;: &quot;__&quot;,</code>
+            <code>        &quot;bem.modifierSeparator&quot;: &quot;--&quot;,</code>
+            <code>        &quot;bem.element&quot;: &quot;__&quot; // not work <a href="https://github.com/microsoft/vscode/issues/87936" target="_blank">issues</a></code>
+
+            <code>    }</code>
+            <code>}</code>
+        </pre>
+
+        <a href="https://github.com/microsoft/vscode/issues/87936" target="_blank">issues</a>
+    </section>
+
+    <section class="slide">
+        <h2>BEM настройка</h2>
+
+        <p>Настрока в Webstorm</p>
+
+        <p class="next">
+            <code>
+                File > Settings (Ctr+Alt+S) > Editor > Emmet > HTML
+            </code>
+        </p>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover" src="img/2021-12-09_17-17-21.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout grow">Все</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Ссылки</h2>
+        <ul>
+            <li><a target="_blank" href="https://epixx.github.io/emmet/">Тренажер</a></li>
+            <li><a target="_blank" href="https://emmet.io/">Сайт</a></li>
+            <li><a target="_blank" href="https://docs.emmet.io/cheat-sheet/">Шпаргалка</a></li>
+        </ul>
+    </section>
+
+
+    <!--    <footer class="badge">-->
+<!--        <a href="https://github.com/shower/shower">Fork me on GitHub</a>-->
+<!--    </footer>-->
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.js"></script>
+    <!-- Copyright © 2021 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
